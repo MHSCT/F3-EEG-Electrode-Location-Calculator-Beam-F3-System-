@@ -1,3 +1,8 @@
+import math
+import streamlit as st
+
+st.title("F3 EEG Electrode Location Calculator (Beam F3 System)")
+
 # Input fields
 nasion_inion = st.number_input("Enter Nasion to Inion Distance (cm):", min_value=0.0)
 tragus_tragus = st.number_input("Enter Tragus to Tragus Distance (cm):", min_value=0.0)

@@ -1,0 +1,23 @@
+# Input fields
+nasion_inion = st.number_input("Enter Nasion to Inion Distance (cm):", min_value=0.0)
+tragus_tragus = st.number_input("Enter Tragus to Tragus Distance (cm):", min_value=0.0)
+head_circumference = st.number_input("Enter Head Circumference (cm):", min_value=0.0)
+
+# Calculate F3 location
+if st.button("Calculate F3 Location"):
+    # Step 1: Calculate the radius of the head
+    radius = head_circumference / (2 * math.pi)
+
+    # Step 2: Calculate the angle Phi (in degrees) for the F3 location
+    Phi = 22.5  # degrees
+
+    # Step 3: Calculate the distance along the circumference (X)
+    X = (Phi / 360) * head_circumference
+
+    # Step 4: Calculate the distance from the vertex (Y)
+    Y = 0.1 * nasion_inion
+
+    # Step 5: Apply correction factor for head curvature (0.9)
+    Y_corrected = Y * 0.9
+
+    st.success(f"F3 Location: X = {X:.2f} cm (along circumference), Y = {Y_corrected:.2f} cm (from vertex)")
